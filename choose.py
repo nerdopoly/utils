@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import sys
 import random
 
-parser = ArgumentParser(description='Select random items from a list.')
+parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter,
+                        description='Select random items from a list.')
 parser.add_argument('-n', default=1, type=int, dest='num',
                     help='number of items to choose')
 parser.add_argument('-s', '--shuffle', action='store_true', dest='shuffle',
