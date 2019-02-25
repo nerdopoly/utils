@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 
+"""Select random items from a list."""
+
 from argparse import ArgumentParser, ArgumentDefaultsHelpFormatter
 import sys
 import random
 
 parser = ArgumentParser(formatter_class=ArgumentDefaultsHelpFormatter,
-                        description='Select random items from a list.')
+                        description=__doc__)
 parser.add_argument('-n', default=1, type=int, dest='num',
                     help='number of items to choose')
 parser.add_argument('-s', '--shuffle', action='store_true', dest='shuffle',
@@ -15,6 +17,7 @@ args = parser.parse_args()
 
 
 def error(*values, code=1, **kwargs):
+    """Print error message and then exit with error code."""
     print(parser.prog + ': error:', *values, file=sys.stderr, **kwargs)
     sys.exit(code)
 
